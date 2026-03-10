@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import re
+from dataclasses import dataclass
 from typing import Dict, List, Optional
 
 from chunker import RawChunk
@@ -144,8 +145,6 @@ class FormattedChunk:
             "page_end": self.page_end,
         }
 
-
-from dataclasses import dataclass  # noqa: E402 (already imported but keep for clarity)
 
 
 def format_chunks(
