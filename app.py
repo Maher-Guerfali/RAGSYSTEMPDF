@@ -11,10 +11,8 @@ from __future__ import annotations
 import time
 from typing import List, Optional
 
-from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-
-from auth import require_api_key
 from chunker import chunk_sections
 from formatter import format_chunks
 from pdf_parser import extract_sections, get_page_count
@@ -56,7 +54,6 @@ async def parse_pdf(
     language: Optional[str] = Form("de"),
     chunk_size: Optional[int] = Form(500),
     chunk_overlap: Optional[int] = Form(50),
-    _api_key: str = Depends(require_api_key),
 ):
     """Upload a PDF and receive structured JSON chunks for the Unity RAG system.
 
