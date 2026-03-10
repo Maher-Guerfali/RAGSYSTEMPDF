@@ -178,7 +178,7 @@ def format_chunks(
         cat = category
         if not cat:
             chapter_tags = _detect_tags(chunk.parent_chapter)
-            cat = chapter_tags[0].replace("_", " ").title() if chapter_tags else "Medical Knowledge"
+            cat = chapter_tags[0].replace("_", " ").title() if chapter_tags else "Medizinisches Wissen"
 
         # Clinical context from section title + chapter
         clinical_ctx = f"{chunk.parent_chapter} — {chunk.section_title}".strip(" —")
